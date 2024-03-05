@@ -21,10 +21,28 @@ public class Main {
         while (true) {
             xPosition += xVelocity;
             yPosition += yVelocity;
+            
+            char currentChar = matrix[xPosition][yPosition];
 
-            if (matrix[xPosition][yPosition] == '#') { //fim
+            if (currentChar == '#') { //fim
                 break;
+            } else if (currentChar == '/') {
+                int xAux = xVelocity;
+                int yAux = yVelocity;
+
+                xVelocity = yAux;
+                yVelocity = xAux;
+            } else if (currentChar == '\\') {
+                int xAux = xVelocity;
+                int yAux = yVelocity;
+
+                xVelocity = -yAux;
+                yVelocity = -xAux;
             }
+
+            currentChar = lastCharacter;
+
+            System.out.println(currentChar);
         }
     }
 }
