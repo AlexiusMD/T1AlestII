@@ -1,6 +1,13 @@
-caminho = open("map.txt").read()
-xSize = 67
-ySize = 12
+file = open("map.txt", "r")
+caminho = []
+ySize = 0
+for x in file:
+    xSize = 0
+    for letter in x:
+        caminho.append(letter)
+        xSize += 1
+    ySize += 1
+
 matrix = []
 
 print("size of file is" + str(len(caminho)))
