@@ -8,15 +8,16 @@ for x in file:
         xSize += 1
     ySize += 1
 
-
-
 matrix = []
+
+print("size of file is" + str(len(caminho)))
 
 for x in range(xSize): ##cria a fucking matrix
     row = []
+    linha = open("map.txt").readline()
     for y in range(ySize):
-        print("adding " + str(caminho[x + y * ySize]) + " to position " + str(x) + ", " + str(y))
-        row.append(caminho[x + y * xSize])
+        ##print("adding " + str(caminho[x + y * xSize]) + " to position " + str(x) + ", " + str(y))
+        row.append(linha[x])
     matrix.append(row)
 
 xPosition = 0
