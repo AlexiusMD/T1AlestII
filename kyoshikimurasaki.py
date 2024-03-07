@@ -1,6 +1,15 @@
-caminho = "------26--\\      #8--/"
-xSize = 11
-ySize = 2
+file = open("map.txt", "r")
+caminho = []
+ySize = 0
+for x in file:
+    xSize = 0
+    for letter in x:
+        caminho.append(letter)
+        xSize += 1
+    ySize += 1
+
+
+
 matrix = []
 
 for x in range(xSize): ##cria a fucking matrix
