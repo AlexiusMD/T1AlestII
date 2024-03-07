@@ -1,4 +1,3 @@
-
 caminho = "------26--\\      #8--/"
 xSize = 11
 ySize = 2
