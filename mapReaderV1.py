@@ -15,9 +15,17 @@ def readMapSize(path):
     size = file.readline().split(" ")
     return size
 
-def printMatrix(matrix):
+def getFirstColumnElements(matrix):
+    elements = []
     for row in matrix:
-        print(row)
+        matrix.append(row[0])
+    return elements
+
+def getYPos(matrix):
+    elements = getFirstColumnElements(matrix)
+    for element in elements:
+        if element == '-':
+            return elements.index(element)
 
 path = "map.txt"
 
@@ -30,10 +38,8 @@ for x in range(xSize): ##cria a fucking matrix
     row = []
     for y in range(ySize):
         #print("adding " + str(caminho[(x + y * ySize) - 1]) + " to position " + str(x) + ", " + str(y))
-        row.append(caminho[(x + y * xSize) - 2])
+        row.append(caminho[(x + y * xSize)])
     matrix.append(row)
-
-    printMatrix(matrix)
 
 xPosition = 0
 yPosition = getYPos(matrix)
@@ -44,7 +50,7 @@ yVelocity = 0
 total = 0
 toAdd = ""
 while (yPosition < ySize and xPosition < xSize):
-    currentChar = matrix[xPosition][yPosition]
+    currentChar = matrix[yPosition][xPosition]
 
     #print("Character in position " + str(xPosition) + ", " + str(yPosition) + " is " + currentChar)
 
