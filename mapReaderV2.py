@@ -42,7 +42,7 @@ def printMap(map):
     for line in map:
         print(line)
 
-path = "casoA2000.txt"
+path = "testes/casoA2000.txt"
 map = mapToMatrix(path)
 #dimensions = getMapDimensionsFromFile(path) -- doesnt exclude empty lines/just read top of file
 dimensions = getMapDimensionsFromMap(map) #excludes empty lines from the map and reads all path lines
