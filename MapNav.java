@@ -31,14 +31,12 @@ public class MapNav{
         int yPos = getStartingPos();
         int xPos = 0;
 
-        //int cursorHeight = (ySize - yPos);
-
         int total = 0;
         String toAdd = "";
         char currentChar;
         
-        //System.out.print("\r");
-        //System.out.print("\u001B[A");
+        System.out.print("\r");
+        System.out.print("\u001B[A");
 
         while(xPos < xSize && yPos < ySize){
            
@@ -71,13 +69,13 @@ public class MapNav{
             xPos += xVelocity;
             yPos -= yVelocity;
 
-            // try {
-            //     Thread.sleep(25);
-            // } catch (InterruptedException e) {
-            //     e.printStackTrace();
-            // }
-            // System.out.println("\033[2H");
-            // printMap(xPos, yPos);
+            try {
+                Thread.sleep(25);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("\033[2H");
+            printMap(xPos, yPos);
         }
 
         return total;

@@ -1,3 +1,5 @@
+import time as time
+
 def mapToMatrix(path):
     mapa = []
     file = open(path, "r")
@@ -42,6 +44,8 @@ def printMap(map):
     for line in map:
         print(line)
 
+
+start_time = time.time()
 path = "testes/casoA2000.txt"
 map = mapToMatrix(path)
 #dimensions = getMapDimensionsFromFile(path) -- doesnt exclude empty lines/just read top of file
@@ -92,3 +96,5 @@ while (yPosition < ySize and xPosition < xSize):
     yPosition -= yVelocity ##velocidade pra baixo significa aumentar o y da matriz
 
 print("Total de dinheiro coletado foi " + str(total))
+end_time = time.time()
+print("Time elapsed:" + str(end_time - start_time))

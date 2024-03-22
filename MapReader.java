@@ -4,7 +4,7 @@ import java.util.*;
 
 public class MapReader {
     
-    private char map[][];
+    private static char map[][];
     
 
     /**
@@ -17,7 +17,6 @@ public class MapReader {
 
     protected char[][] getMapFromFile(String path){
         
-        char[][] map = null;
         Path file = Paths.get(path);
 
         try(BufferedReader br = Files.newBufferedReader(file)){
@@ -32,21 +31,17 @@ public class MapReader {
             String[] lines = auxLines.toArray(new String[0]);
 
             char[][] auxMap = new char[lines.length][lines[0].length()];
-            for(int i = 0; i < lines.length; i++){
-                for(int j = 0; j < lines[0].length(); j++){
-                    char[] aux = lines[i].toCharArray();
-                    auxMap[i][j] = aux[j];
-                }
+
+            for(int i = 0; i < auxMap.length; i++){
+                char[] array = lines[i].toCharArray();
+                auxMap[i] = array;
             }
+
             map = auxMap;
 
         }catch(IOException e){
             System.err.println("Erro de I/O de dados.");
         }
-        return map;
-    }
-
-    public char[][] getMap(){
         return map;
     }
 }
