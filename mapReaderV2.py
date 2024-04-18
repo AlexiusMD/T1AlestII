@@ -30,15 +30,12 @@ def getMapDimensionsFromMap(matrix):
 
 
 def getStartingYPosition(map):
-    xCounter = 0
     yCounter = 0
     for line in map:
-        for element in line:
-            if element == '-' and xCounter == 0:
-                return yCounter
-            xCounter += 1
+        element = line[0]
+        if element == '-':
+            return yCounter
         yCounter += 1
-        xCounter = 0
 
 def printMap(map):
     for line in map:
